@@ -57,3 +57,20 @@ pip install -r requirements.txt
 
 # 4. Rode o sistema
 python app.py
+
+Aplicação Real:
+Este sistema está sendo testado e utilizado por uma advogada previdenciarista em atividade, com foco na automatização de tarefas administrativas e organização dos processos de clientes. Ele permite:
+- Organização completa de atendimentos e cadastro de clientes;
+- Agilidade no envio de atualizações aos clientes  via whatsapp/e-mail sobre movimentações dos processos;
+- Análise de métricas da empresa: número de clientes ativos, tipos de processos mais comuns, taxa de sucesso, aniversariantes do mês e mais;
+- Busca rápida por CPF ou nome, com filtros úteis para o dia a dia do escritório;
+- Visualização de dados em dashboards dinâmicos, facilitando decisões estratégicas;
+- Dashboards individuais com workflow para cada colaborador da empresa, permitindo gestão personalizada de tarefas e andamento de processos;
+- Planejamento de aposentadorias com base na data de nascimento registrada no banco de dados (o sistema sinalizará quando um cliente está próximo ou apto a iniciar o processo de aposentadoria);
+- Entre outros.
+
+
+Prints e Demonstrações:
+Sessão em construção! será atualizada com imagens da dashboard, formulários e gráfico!
+
+Desenvolver algo do zero exige paciência, pesquisa e constância. Com esse projeto, aprendi que um sistema simples pode ter grande impacto, principalmente quando nasce de uma necessidade real.
