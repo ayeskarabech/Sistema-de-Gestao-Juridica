@@ -1,6 +1,7 @@
 import sqlite3
 from crud_clientes import create_cliente, read_clientes, update_cliente, delete_cliente
 
+
 def menu():
     conexao = sqlite3.connect("database.db")
     
@@ -10,7 +11,8 @@ def menu():
         print("2. Ver todos os clientes")
         print("3. Atualizar cliente")
         print("4. Remover cliente")
-        print("5. Sair")
+        print("5. Procurar por cliente")
+        print("6. Sair")
 
         opcao = input("Escolha: ")
 
@@ -35,6 +37,10 @@ def menu():
             delete_cliente(conexao, id_cliente)
 
         elif opcao == "5":
+            termo = input("Digite o CPF ou parte do nome do cliente: ")
+            buscar_cliente(conexao, termo)
+
+        elif opcao == "6":
             print("Saindo...")
             break
         else:

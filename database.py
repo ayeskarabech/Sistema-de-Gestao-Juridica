@@ -1,4 +1,6 @@
+# Cria o banco e a tabela
 import sqlite3
+import csv
 
 # Conecta/cria banco
 conexao = sqlite3.connect("database.db")  # cria um banco de dados

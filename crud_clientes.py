@@ -26,3 +26,14 @@ def delete_cliente(conexao, id_cliente):
     cursor.execute("DELETE FROM Clientes WHERE ID_Cliente = ?", (id_cliente,))
     conexao.commit()
     print("Cliente removido com sucesso.")
+
+def buscar_cliente(conexao, termo):
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM clientes WHERE cpf = ? OR nome LIKE ?", (termo, f"%{termo}%"))
+    resultados = cursor.fetchall()
+
+    if resultados:
+        for cliente in resultados:
+            print(cliente)
+    else:
+        print("Nenhum cliente encontrado.")
