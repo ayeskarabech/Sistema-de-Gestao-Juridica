@@ -1,13 +1,13 @@
 # Sistema de Gestão Jurídica
- Projeto pessoal fullstack, criado com o objetivo de aprender na prática os fundamentos de um sistema real e gerar impacto direto para uso jurídico. Construído em Python, Flask e SQLite.
+ Projeto pessoal fullstack, criado com o objetivo de aprender na prática os fundamentos de um sistema real. Sendo desenvolvido com o objetivo de aprender na prática os fundamentos de um sistema real. Será construído em Python, Flask e SQLite.
 
-Desenvolvido por Ayeska Rabech – Estudante de Sistemas de Informação na UFRPE (Universidade Federal Rural de Pernambuco), com apoio de orientação técnica baseada em metodologias ágeis e práticas de desenvolvimento profissional.
+Desenvolvido por Ayeska Rabech – Estudante de Sistemas de Informação na UFRPE (Universidade Federal Rural de Pernambuco).
 
 Objetivos:
 
 - Estudar e aplicar conhecimentos reais de backend com Python e Flask;
 - Desenvolver um projeto completo: backend, frontend, banco de dados, análises e deploy;
-- Criar um case sólido para meu portfólio visando vagas de estágio e desenvolvimento futuro.
+- Criar um case sólido para meu portfólio visando desenvolvimento futuro;
 - Este projeto que será meu espaço de crescimento técnico, prático e pessoal, onde posso testar, errar, aprender e evoluir de verdade.
 
 Tecnologias Utilizadas:
@@ -57,9 +57,11 @@ pip install -r requirements.txt
 
 # 4. Rode o sistema
 python app.py
+```
 
 Aplicação Real:
-Este sistema está sendo testado e utilizado por uma advogada previdenciarista em atividade, com foco na automatização de tarefas administrativas e organização dos processos de clientes. Ele permite:
+Este sistema será testado e utilizado por uma advogada previdenciarista em atividade, com foco na automatização de tarefas administrativas e organização dos processos de clientes.
+Ele permitirá:
 - Organização completa de atendimentos e cadastro de clientes;
 - Agilidade no envio de atualizações aos clientes  via whatsapp/e-mail sobre movimentações dos processos;
 - Análise de métricas da empresa: número de clientes ativos, tipos de processos mais comuns, taxa de sucesso, aniversariantes do mês e mais;
@@ -71,6 +73,6 @@ Este sistema está sendo testado e utilizado por uma advogada previdenciarista e
 
 
 Prints e Demonstrações:
-Sessão em construção! será atualizada com imagens da dashboard, formulários e gráfico!
+Sessão em construção! Será atualizada com imagens da dashboard, formulários e gráfico!
 
-Desenvolver algo do zero exige paciência, pesquisa e constância. Com esse projeto, aprendi que um sistema simples pode ter grande impacto, principalmente quando nasce de uma necessidade real.
+**Desenvolver algo do zero exige paciência, pesquisa e constância. Ademais, um sistema simples pode ter grande impacto, principalmente quando nasce de uma necessidade real.**

@@ -9,6 +9,7 @@ cursor = conexao.cursor()
 # Criação da tabela
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS Clientes(
+    ID_Cliente INTEGER PRIMARY KEY AUTOINCREMENT, 
     Nome_Cliente TEXT NOT NULL,
     Sobrenome_Cliente TEXT NOT NULL,
     RG TEXT NOT NULL,

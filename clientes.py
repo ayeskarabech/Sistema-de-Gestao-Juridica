@@ -29,7 +29,7 @@ def delete_cliente(conexao, id_cliente):
 
 def buscar_cliente(conexao, termo):
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM clientes WHERE cpf = ? OR nome LIKE ?", (termo, f"%{termo}%"))
+    cursor.execute("SELECT * FROM clientes WHERE cpf = ? OR Nome_Cliente LIKE ?", (termo, f"%{termo}%"))
     resultados = cursor.fetchall()
 
     if resultados:
