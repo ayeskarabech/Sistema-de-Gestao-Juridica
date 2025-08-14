@@ -1,29 +1,41 @@
-# Cria o banco e a tabela
-import sqlite3
-import csv
+import sqlite3 # database connection
 
-# Conecta/cria banco
-conexao = sqlite3.connect("database.db")  # cria um banco de dados
-cursor = conexao.cursor()
+def conectar():
+    return sqlite3.connect("database.db")
 
-# Criação da tabela
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Clientes(
-    ID_Cliente INTEGER PRIMARY KEY AUTOINCREMENT, 
-    Nome_Cliente TEXT NOT NULL,
-    Sobrenome_Cliente TEXT NOT NULL,
-    RG TEXT NOT NULL,
-    CPF TEXT NOT NULL,
-    Telefone TEXT,
-    Rua TEXT,
-    Numero TEXT,
-    Bairro TEXT,
-    Cidade TEXT,
-    Estado_UF TEXT
+def criar_tabela(): # Conecta/cria banco
+    conexao = conectar()
+    cursor = conexao.cursor()
+
+    # Tabela com dados dos clientes
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Clientes(
+        ID_Cliente INTEGER PRIMARY KEY AUTOINCREMENT, 
+        Nome_Cliente TEXT NOT NULL,
+        Sobrenome_Cliente TEXT NOT NULL,
+        RG TEXT NOT NULL,
+        CPF TEXT NOT NULL,
+        Telefone TEXT,
+        Rua TEXT,
+        Numero TEXT,
+        Bairro TEXT,
+        Cidade TEXT,
+        Estado_UF TEXT
+        )
+    ''')
+
+    # Tabela de usuários para login
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS usuarios (
+        usuario TEXT PRIMARY KEY,
+        senha_hash BLOB NOT NULL,  -- é BLOB porque o bcrypt gera bytes, não string.
+        tipo_acesso TEXT NOT NULL
     )
-''')
+    """)
 
-conexao.commit()
-conexao.close()
+    conexao.commit()
+    conexao.close()
 
-print("Banco e tabela criados com sucesso.")
+if __name__ == "__main__":
+    criar_tabela()
+    print("Banco e tabela criados com sucesso.")

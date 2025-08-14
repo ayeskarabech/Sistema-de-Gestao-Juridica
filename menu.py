@@ -1,5 +1,5 @@
 import sqlite3
-from clientes import create_cliente, read_clientes, update_cliente, delete_cliente
+from clientes import create_cliente, read_clientes, update_cliente, delete_cliente, buscar_cliente
 
 def menu():
     conexao = sqlite3.connect("database.db")
@@ -46,5 +46,3 @@ def menu():
             print("Opção inválida.")
 
     conexao.close()
-
-menu()
