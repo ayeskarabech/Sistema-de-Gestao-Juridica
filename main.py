@@ -16,11 +16,11 @@ if __name__ == "__main__":
             u = input("Digite o nome de usuário: ")
             s = input("Digite a senha: ")
             tipo_acesso = input("Digite o tipo de acesso (admin/usuario): ")
-            auth.cadastrar_usuarios(u, s, tipo_acesso)
+            cadastrar_usuarios(u, s, tipo_acesso)
         elif opcao == '2':
             u = input("Digite o nome de usuário: ")
             s = input("Digite a senha: ")
-            sucesso, tipo_acesso = auth.fazer_login(u, s)
+            sucesso, tipo_acesso = fazer_login(u, s)
             if sucesso:
                 print(f"Bem-vindo, {u}! Tipo de acesso: {tipo_acesso}")
                 menu()  # Só chama o menu após login bem-sucedido
