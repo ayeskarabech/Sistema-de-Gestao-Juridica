@@ -39,7 +39,6 @@ Etapas do Desenvolvimento:
 
 O projeto foi dividido em **fases**, organizadas no estilo ágil (Scrum + Sprints), com entregas semanais e retrospectivas.
 
-Você pode acompanhar todas as fases no [Notion do Projeto](https://www.notion.so/PreviGest-SISTEMA-DE-GEST-O-PREVIDENCI-RIA-23b562eeda348006814fd3b475b96e09) ou na [timeline de commits](#).
 
 Como Executar Localmente:
 
