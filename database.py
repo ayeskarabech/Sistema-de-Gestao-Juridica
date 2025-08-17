@@ -1,9 +1,11 @@
 import sqlite3 # database connection
 
-def conectar():
-    return sqlite3.connect("database.db")
+def conectar(): # Conectar ao banco de dados
+    conexao = sqlite3.connect("database.db")
+    conexao.row_factory = sqlite3.Row  # Isso permite acessar colunas pelo nome, como um dicionário. o row_factory deixa o retorno mais fácil de ler (user["usuario"] em vez de índice)
+    return conexao
 
-def criar_tabela(): # Conecta/cria banco
+def criar_tabela(): # Criar tabela no banco de dados
     conexao = conectar()
     cursor = conexao.cursor()
 

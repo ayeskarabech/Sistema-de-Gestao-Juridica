@@ -1,0 +1,16 @@
+{% extends "base.html" %} <!-- pega o layout base e só preencha os espaços-->
+
+{% block title %}Login{% endblock %} <!-- muda o título do navegador para “Login” -->
+
+{% block content %}
+<h2>Login</h2>
+<form method="POST" action="/login"> <!-- method diz que vai enviar os dados pro servidor e action diz pra onde enviar os dados (a rota do Flask) -->
+    <label for="usuario">Usuário:</label>
+    <input type="text" name="usuario" required><br>
+
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" required><br>
+
+    <button type="submit">Entrar</button>
+</form>
+{% endblock %}
