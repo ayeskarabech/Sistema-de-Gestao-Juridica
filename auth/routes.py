@@ -1,6 +1,6 @@
 # guarda as rotas /login, /logout, /register
 
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, flash, request, redirect, url_for, session
 ''' Explicação rápida:
 - Blueprint → é como um “mapa” que organiza as rotas do Flask, tipo uma pasta que guarda tudo sobre autenticação.
 - render_template → serve para renderizar (mostrar) arquivos HTML que estão na pasta templates/
@@ -36,6 +36,14 @@ def login():
 
     return render_template("auth/login.html")
 
+# rota de logout
+@auth_bp.route("/logout")
+def logout():
+    session.pop("usuario", None)
+    session.pop("tipo_acesso", None)  # remove também o tipo de acesso
+    return redirect(url_for("auth.login"))
+    
+# rota de cadastro
 @auth_bp.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -54,16 +62,10 @@ def register():
             conexao.commit()
         except sqlite3.IntegrityError: # IntegrityError é um erro do SQLite que acontece quando você tenta inserir um valor que já existe (ex: usuário duplicado)
             conexao.close()
-            return "Usuário já existe!"
+            flash("Usuário já existe!")
+            return redirect(url_for("auth.register"))
 
         conexao.close()
         return redirect(url_for("auth.login"))
 
     return render_template("auth/register.html")
-
-@auth_bp.route("/logout")
-def logout():
-    session.pop("usuario", None)
-    session.pop("tipo_acesso", None)  # remove também o tipo de acesso
-    return redirect(url_for("auth.login"))
-
