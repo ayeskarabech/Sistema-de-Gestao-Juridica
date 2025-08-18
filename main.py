@@ -1,3 +1,5 @@
+# o terminal nao é o foco, e o auth daqui nao esta conectado com o auth do flask/routes.
+'''
 from menu import menu
 from auth import cadastrar_usuarios, fazer_login
 from database import criar_tabela

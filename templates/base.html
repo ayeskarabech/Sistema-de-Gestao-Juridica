@@ -1,0 +1,33 @@
+<!-- layout: tem as partes que se repetem em todas as páginas (ex.: <head>, <header>, <footer>. É tipo o “molde” de um bolo: você usa sempre o mesmo, só troca o recheio -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}PreviGest{% endblock %}</title> 
+</head>
+<body>
+    <header>
+        <h1>PreviGest - Sistema de Gestão Jurídica</h1>
+        <hr>
+    </header>
+
+    <!-- Aqui exibimos mensagens flash do Flask (ex: login errado) -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 PreviGest. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

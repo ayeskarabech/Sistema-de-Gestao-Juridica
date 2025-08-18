@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}PreviGest{% endblock %}</title>
-</head>
-<body>
-    <header>
-        <h1>PreviGest - Sistema de Gestão Jurídica</h1>
-        <hr>
-    </header>
+<!-- index é a página inicial que usa o layout de base.html, mas traz o conteúdo dela mesma (ex.: mensagem de boas-vindas, menu inicial, etc) -->
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+  <h2>Bem-vindo ao PreviGest!</h2>
+  <p>Escolha uma opção no menu acima.</p>
+{% endblock %}

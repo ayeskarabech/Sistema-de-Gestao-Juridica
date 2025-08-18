@@ -1,4 +1,6 @@
 # guarda as rotas /login, /logout, /register
+# Blueprint cria mini “apps” separados para as rotas, ele não muda como o Flask funciona, só deixa mais limpo e organizado.
+# autenticação no navegador (login/logout) é feita com sessões (session)
 
 from flask import Blueprint, render_template, flash, request, redirect, url_for, session
 ''' Explicação rápida:
@@ -18,7 +20,6 @@ def login():
     if request.method == "POST":
         usuario = request.form["usuario"] # pega o valor digitado no campo <input name="usuario"> do register.html
         senha = request.form["senha"]
-        tipo_acesso = request.form.get("tipo_acesso", "comum")  # pega o tipo de acesso, se não tiver, assume "comum"
 
         # buscar usuario no banco de dados e usar a função conectar() do database.py para evitar repetição de código:
         conexao = conectar()
@@ -28,11 +29,13 @@ def login():
             (usuario,)).fetchone() # fetchone é útil quando você espera que a consulta retorne apenas uma linha ou quando você quer processar os resultados um de cada vez.
         conexao.close()
 
-        if user and bcrypt.checkpw(senha.encode("utf-8"), user[1]): # verifica se o usuário existe, se o SELECT retornou algo e se a senha bate
-            session["usuario"] = user[0] #guarda o nome de usuário na session (espécie de "mochila" que acompanha o usuário logado).
-            session["tipo_acesso"] = user[2]
+        if user and bcrypt.checkpw(senha.encode("utf-8"), user["senha_hash"]): # verifica se o usuário existe, se o SELECT retornou algo e se a senha bate
+            session["usuario"] = user["usuario"] #guarda o nome de usuário na session (espécie de "mochila" que acompanha o usuário logado).
+            session["tipo_acesso"] = user["tipo_acesso"]
             return redirect(url_for("index"))
-        return "Usuário ou senha inválidos"
+
+        flash("Usuário ou senha inválidos")
+        return redirect(url_for("auth.login"))
 
     return render_template("auth/login.html")
 
@@ -61,11 +64,12 @@ def register():
                 (usuario, senha_hash, tipo_acesso))
             conexao.commit()
         except sqlite3.IntegrityError: # IntegrityError é um erro do SQLite que acontece quando você tenta inserir um valor que já existe (ex: usuário duplicado)
-            conexao.close()
             flash("Usuário já existe!")
             return redirect(url_for("auth.register"))
-
-        conexao.close()
+        finally:
+            conexao.close()
+        flash("Usuário cadastrado com sucesso!")
+        
         return redirect(url_for("auth.login"))
 
     return render_template("auth/register.html")

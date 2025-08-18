@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+{%block title%}Lista de Clientes{%endblock%}
+
+{%block content%}
+    <h2>Lista de Clientes</h2>
+
+    {% if not clientes %} <!-- if not condicional do Jinja2. Se não houver clientes cadastrados, exibe uma mensagem -->
+        <p>Nenhum cliente cadastrado ainda.</p>
+    {% else %}
+        <ul>
+            {% for cliente in clientes %} <!-- loop percorre a lista 'clientes' enviada pelo Flask -->
+                <li>{{ cliente.nome }} - {{ cliente.email }}</li> <!-- Renderiza no HTML o valor do Python (substitui pelo nome real do cliente). -->
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{{ url_for('clientes.novo_cliente') }}">Cadastrar novo cliente</a>
+{% endblock %}

@@ -1,10 +1,13 @@
+# autenticação no terminal
+# usando apenas a autenticação no navegador, de /auth/routes.py
+'''
 import sqlite3
 import bcrypt
 from database import conectar
 
 def cadastrar_usuarios(usuario, senha, tipo_acesso):
-    conexao = sqlite3.connect("database.db") # conectando ao banco
-    cursor = conexao.cursor() # criando cursor
+    conexao = conectar()
+    cursor = conexao.cursor()
 
     senha_hash = bcrypt.hashpw(senha.encode(), bcrypt.gensalt()) # gerando salt + senha hash. encode converte de string para bytes, e gensalt gera um salt aleatório.
     
@@ -41,3 +44,4 @@ def fazer_login(usuario, senha):
     else:
         print("Usuário não encontrado.")
         return False, None
+'''
