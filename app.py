@@ -1,5 +1,4 @@
 # principal do Flask
-# http://127.0.0.1:5000/ servidor web local
 
 from flask import Flask, render_template # Flask → cria o app em si. É como ligar a “máquina” do servidor, e render_template → serve para renderizar (mostrar) arquivos HTML que estão na pasta templates/
 from auth.routes import auth_bp # importa as rotas de autenticação do arquivo auth/routes.py
