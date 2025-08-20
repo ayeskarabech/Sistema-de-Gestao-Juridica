@@ -12,6 +12,5 @@ app.register_blueprint(clientes_bp) # registra o blueprint de clientes, que cont
 @app.route("/")  # Define a rota principal do site, que é o caminho / (raiz) 
 def index():
     return render_template("index.html") # render_template() é usada no Flask para renderizar arquivos de template HTML, ela combina o conteúdo do arquivo de template com dados fornecidos pelo código Python, gerando o código HTML final que será enviado ao navegador do usuário. 
-
 if __name__ == "__main__":
     app.run(debug=True)  # Executa o servidor se rodar diretamente esse arquivo

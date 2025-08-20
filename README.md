@@ -1,77 +1,75 @@
-# Sistema de Gestão Jurídica
- Projeto pessoal fullstack, criado com o objetivo de aprender na prática os fundamentos de um sistema real. Sendo desenvolvido com o objetivo de aprender na prática os fundamentos de um sistema real. Será construído em Python, Flask e SQLite.
+Sistema de Gestão Jurídica (PreviGest)
 
-Desenvolvido por Ayeska Rabech – Estudante de Sistemas de Informação na UFRPE (Universidade Federal Rural de Pernambuco).
+Projeto pessoal fullstack criado com o objetivo de aprender na prática os fundamentos de um sistema real. Desenvolvido em Python, Flask e SQLite, este sistema será expandido gradualmente com backend, frontend, análises e deploy.
 
-Objetivos:
+Desenvolvido por Ayeska Rabech – Estudante de Sistemas de Informação (UFRPE).
+
+Objetivos
 
 - Estudar e aplicar conhecimentos reais de backend com Python e Flask;
 - Desenvolver um projeto completo: backend, frontend, banco de dados, análises e deploy;
-- Criar um case sólido para meu portfólio visando desenvolvimento futuro;
-- Este projeto que será meu espaço de crescimento técnico, prático e pessoal, onde posso testar, errar, aprender e evoluir de verdade.
+- Criar um case sólido para portfólio visando desenvolvimento futuro;
+- Ser um espaço de crescimento técnico e prático, onde posso testar, errar, aprender e evoluir.
 
-Tecnologias Utilizadas:
+Tecnologias Utilizadas
 
-- **Backend**: Python, Flask, SQLite3, Pandas, Matplotlib, datetime, smtplib/yagmail  
-- **Frontend**: HTML, CSS, Jinja2, JavaScript (básico), Bootstrap (opcional)  
-- **APIs (futuro)**: Twilio API (WhatsApp), Google Calendar API  
-- **Banco de dados na nuvem (futuro)**: Supabase (PostgreSQL)  
-- **Deploy**: Render, Railway, Vercel  
-- **Outros**: Git, GitHub, Notion, Scrum adaptado
+- Backend: Python, Flask, SQLite3, bcrypt
+- Frontend: HTML, CSS, Jinja2, JavaScript (básico), Bootstrap
+planos futuros: 
+- APIs: Twilio API (WhatsApp), Google Calendar API
+- Banco de dados em nuvem: Supabase (PostgreSQL)
+- Deploy: Render, Railway, Vercel
+- Outros: Git, GitHub, Notion, Scrum adaptado
 
-Funcionalidades:
+Funcionalidades (em desenvolvimento)
 
-- Cadastro de clientes (nome, CPF, tipo de benefício etc.)
-- Listagem de clientes com visual web
-- Login com senha criptografada (`hashlib`)
+- Cadastro e listagem de clientes
+- Login com senha criptografada (bcrypt)
 - Busca por CPF ou nome
-- Agenda de movimentações por cliente
-- Análise de dados com Pandas (aniversariantes, pré-aposentadoria, ...)
-- Gráficos com Matplotlib (tipo de benefício, idade,...)
-- Dashboard analítico
-- Exportação para Excel (.xlsx ou .csv)
-- Notificações por e-mail e WhatsApp
-- Sistema de permissões por tipo de usuário
-- Integração com Google Calendar
-- Deploy completo com banco em nuvem (Supabase)
+- Sistema de permissões por tipo de usuário (admin, advogado, estagiário etc.)
+- Dashboard analítico (futuro)
+- Exportação para Excel/CSV (futuro)
+- Notificações por e-mail/WhatsApp (futuro)
+- Integração com Google Calendar (futuro)
 
-Etapas do Desenvolvimento:
-
-O projeto foi dividido em **fases**, organizadas no estilo ágil (Scrum + Sprints), com entregas semanais e retrospectivas.
-
-
-Como Executar Localmente:
-
-```bash
+Como Executar Localmente
 # 1. Clone o repositório
 git clone https://github.com/ayeskarabech/Sistema-de-Gestao-Juridica.git
-cd previgest
+cd Sistema-de-Gestao-Juridica
 
 # 2. Crie um ambiente virtual
 python -m venv venv
-source venv/bin/activate  # ou .\venv\Scripts\activate no Windows
+source venv/bin/activate   # Linux/Mac
+.\venv\Scripts\activate    # Windows
 
 # 3. Instale as dependências
 pip install -r requirements.txt
 
-# 4. Rode o sistema
+# 4. Execute o servidor Flask
 python app.py
-```
 
-Aplicação Real:
-Este sistema será testado e utilizado por uma advogada previdenciarista em atividade, com foco na automatização de tarefas administrativas e organização dos processos de clientes.
-Ele permitirá:
+# 5. Acesse no navegador
+http://127.0.0.1:5000/
+
+Etapas do Desenvolvimento
+
+O projeto está sendo desenvolvido em fases semanais no estilo ágil (Scrum + Sprints):
+
+- Autenticação de usuários (login, registro, logout)✅
+- Estrutura inicial de clientes (listagem e cadastro parcial)✅
+- Próximos passos: CRUD completo de clientes e conexão ao banco
+- Futuro: dashboards, análises, notificações e deploy
+
+Aplicação Real
+
+Este sistema será testado e utilizado em um escritório de advocacia previdenciária real, ajudando na:
+
 - Organização completa de atendimentos e cadastro de clientes;
-- Agilidade no envio de atualizações aos clientes  via whatsapp/e-mail sobre movimentações dos processos;
-- Análise de métricas da empresa: número de clientes ativos, tipos de processos mais comuns, taxa de sucesso, aniversariantes do mês e mais;
-- Busca rápida por CPF ou nome, com filtros úteis para o dia a dia do escritório;
-- Visualização de dados em dashboards dinâmicos, facilitando decisões estratégicas;
-- Dashboards individuais com workflow para cada colaborador da empresa, permitindo gestão personalizada de tarefas e andamento de processos;
-- Planejamento de aposentadorias com base na data de nascimento registrada no banco de dados (o sistema sinalizará quando um cliente está próximo ou apto a iniciar o processo de aposentadoria);
-- Entre outros.
+- Agilidade no envio de atualizações via WhatsApp/e-mail;
+- Análise de métricas da empresa (clientes ativos, tipos de processos, aniversariantes, taxa de sucesso etc.).
 
+Prints e Demonstrações
+Sessão em construção! Em breve com imagens de telas, formulários e gráficos.
 
-Prints e Demonstrações:
-Sessão em construção! Será atualizada com imagens da dashboard, formulários e gráfico!
-
-**Desenvolver algo do zero exige paciência, pesquisa e constância. Ademais, um sistema simples pode ter grande impacto, principalmente quando nasce de uma necessidade real.**
+Nota pessoal: Desenvolver algo do zero exige paciência, pesquisa e constância.
+Mesmo um sistema simples pode gerar impacto quando nasce de uma necessidade real.
