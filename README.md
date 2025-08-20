@@ -33,6 +33,7 @@ Funcionalidades (em desenvolvimento)
 - Integração com Google Calendar (futuro)
 
 Como Executar Localmente
+```
 # 1. Clone o repositório
 git clone https://github.com/ayeskarabech/Sistema-de-Gestao-Juridica.git
 cd Sistema-de-Gestao-Juridica
@@ -50,6 +51,8 @@ python app.py
 
 # 5. Acesse no navegador
 http://127.0.0.1:5000/
+```
+
 
 Etapas do Desenvolvimento
 
