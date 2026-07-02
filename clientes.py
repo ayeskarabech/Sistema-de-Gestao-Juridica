@@ -1,40 +1,39 @@
-def create_cliente(conexao, dados):
-    cursor = conexao.cursor()
-    cursor.execute('''
-        INSERT INTO Clientes (Nome_Cliente, Sobrenome_Cliente, RG, CPF, Telefone, Rua, Numero, Bairro, Cidade, Estado_UF)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ''', dados)
-    conexao.commit()
-    print("Cliente inserido com sucesso!")
+from database import conectar_supabase
 
-def read_clientes(conexao):
-    cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM Clientes")
-    clientes = cursor.fetchall()
-    for cliente in clientes:
-        print(cliente)
+class PreviGestClientes:
+    def __init__(self):
+        self.supabase = conectar_supabase()
 
-def update_cliente(conexao, id_cliente, campo, novo_valor):
-    cursor = conexao.cursor()
-    sql = f"UPDATE Clientes SET {campo} = ? WHERE ID_Cliente = ?"
-    cursor.execute(sql, (novo_valor, id_cliente))
-    conexao.commit()
-    print("Cliente atualizado com sucesso.")
+    def cadastrar_novo_cliente(self, nome, cpf_cnpj, telefone, etiquetas=None):
+        """
+        Cadastra um cliente no banco de dados. 
+        Note que usamos os campos mapeados na tabela 'usuarios' ou uma futura tabela de contatos.
+        """
+        if not self.supabase:
+            return {"status": "erro", "mensagem": "Sem conexão com o banco."}
 
-def delete_cliente(conexao, id_cliente):
-    cursor = conexao.cursor()
-    cursor.execute("DELETE FROM Clientes WHERE ID_Cliente = ?", (id_cliente,))
-    conexao.commit()
-    print("Cliente removido com sucesso.")
+        dados_cliente = {
+            "nome_completo": nome,
+            "telefone": telefone,
+            "oab": cpf_cnpj,
+            "cargo": "Parceiro",
+            "usuario_handle": f"@{nome.lower().replace(' ', '')}"
+        }
 
-def buscar_cliente(conexao, termo):
-    cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM Clientes WHERE CPF = ? OR Nome_Cliente LIKE ?", (termo, f"%{termo}%"))
-    resultados = cursor.fetchall()
+        try:
+            self.supabase.table("usuarios").insert(dados_cliente).execute()
+            return {"status": "sucesso", "mensagem": f"Cliente {nome} cadastrado com sucesso na nuvem!"}
+        except Exception as e:
+            return {"status": "erro", "mensagem": f"Erro ao salvar cliente: {e}"}
 
-    if resultados:
-        for cliente in resultados:
-            print(cliente)
-    else:
-        print("Nenhum cliente encontrado.")
+    def listar_clientes_cadastrados(self):
+        """ Recupera a lista de contatos do escritório do Supabase """
+        if not self.supabase:
+            return []
 
+        try:
+            resposta = self.supabase.table("usuarios").select("nome_completo", "telefone", "oab").execute()
+            return resposta.data
+        except Exception as e:
+            print(f"Erro ao listar clientes: {e}")
+            return []

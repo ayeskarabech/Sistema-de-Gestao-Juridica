@@ -1,76 +1,47 @@
-<h2>Sistema de Gestão Jurídica (PreviGest)</h2>
+# PreviGest - Sistema de Gestão Jurídica 
 
-Projeto pessoal fullstack criado com o objetivo de aprender na prática os fundamentos de um sistema real. Desenvolvido em Python, Flask e SQLite, este sistema será expandido gradualmente com backend, frontend, análises e deploy. Desenvolvido por Ayeska Rabech – Estudante de Sistemas de Informação (UFRPE).
+💡 **A Origem do Projeto: Do Problema Real à Solução Técnica**
+A ideação do **PreviGest** nasceu no coração de um escritório de advocacia previdenciária real. Ele foi provocado pela insatisfação e exaustão da minha irmão que é advogada previdenciarista, diante do cenário atual de softwares jurídicos: a necessidade de pagar por múltiplas assinaturas de sistemas fragmentados para gerenciar um único fluxo de trabalho. Era um sistema para clientes, outro para cálculos, outro para mural de tarefas... 
 
-**Objetivos**
+Além do custo inflacionado, a grande frustração era a falta de inteligência analítica: os sistemas de mercado guardavam os dados, mas poucos entregavam insights limpos, claros e dicas concisas que auxiliassem de verdade na tomada de decisões estratégicas baseadas na própria base de dados do escritório.
 
-- Estudar e aplicar conhecimentos reais de backend com Python e Flask;
-- Desenvolver um projeto completo: backend, frontend, banco de dados, análises e deploy;
-- Criar um case sólido para portfólio visando desenvolvimento futuro;
-- Ser um espaço de crescimento técnico e prático, onde posso testar, errar, aprender e evoluir.
+O intuito do PreviGest, **por enquanto**, é unificar esse ecossistema, integrar ferramentas essenciais e alavancar a gestão e a produtividade do escritório dela em uma única plataforma inteligente.
 
-**Tecnologias Utilizadas**
+---
 
-- Backend: Python, Flask, SQLite3, bcrypt
-- Frontend: HTML, CSS, Jinja2, JavaScript (básico), Bootstrap
-- *planos futuros*: 
-- APIs: Twilio API (WhatsApp), Google Calendar API
-- Banco de dados em nuvem: Supabase (PostgreSQL)
-- Deploy: Render, Railway, Vercel
-- Outros: Git, GitHub, Notion, Scrum adaptado
+Então, **PreviGest** é um ecossistema de software que o projeto nasceu como uma aplicação fullstack inicial e evoluiu para uma solução de arquitetura moderna, combinando persistência em nuvem, controle rígido de acessos (SaaS) e um assistente inteligente de IA focado na produtividade jurídica.
 
-**Funcionalidades (em desenvolvimento)**
+Desenvolvido por **Ayeska Silva** – Estudante de Sistemas de Informação na UFRPE.
 
-- Cadastro e listagem de clientes
-- Login com senha criptografada (bcrypt)
-- Busca por CPF ou nome
-- Sistema de permissões por tipo de usuário (admin, advogado, estagiário etc.)
-- Dashboard analítico (futuro)
-- Exportação para Excel/CSV (futuro)
-- Notificações por e-mail/WhatsApp (futuro)
-- Integração com Google Calendar (futuro)
+---
 
-**Como Executar Localmente**
-```
-# 1. Clone o repositório
-git clone https://github.com/ayeskarabech/Sistema-de-Gestao-Juridica.git
-cd Sistema-de-Gestao-Juridica
+### Histórico de Evolução e Versões
 
-# 2. Crie um ambiente virtual
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-.\venv\Scripts\activate    # Windows
+Abaixo está mapeada a trajetória de engenharia do sistema, documentando o amadurecimento das escolhas arquiteturais da aplicação:
 
-# 3. Instale as dependências
-pip install -r requirements.txt
+| Versão | Descrição | Stack Utilizada | Paradigma / Infraestrutura | Status |
+| :---: | :--- | :--- | :--- | :---: |
+| **1.0** | **Monolito Web Inicial:** Protótipo estruturado para aprendizado de rotas, autenticação básica e persistência relacional local. | Python, Flask, SQLite3, HTML5, CSS3, Jinja2, Bootstrap, bcrypt | Aplicação Web Local | Concluído ✅ |
+| **2.0** | **Prototipagem de Interface:** Design do ecossistema visual e mapeamento de componentes focados na experiência do usuário (UX/UI). | Stitch, Google AI Studio | Prototipagem & Prompt Engineering | Concluído ✅ |
+| **2.1** | **Migração de Dados (Escalabilidade):** Substituição do armazenamento local por um banco relacional gerenciado e escalável. | PostgreSQL, Supabase | Cloud Database Architecture | Concluído ✅ |
+| **2.2** | **Refatoração do Backend & Segurança:** Reestruturação completa do core em Python para suporte a Desktop, blindagem de credenciais por variáveis de ambiente e regras SaaS. | Python 3, `google-generativeai`, Supabase Client | Desktop Backend Engine | Concluído ✅ |
+| **2.3** | **Integração Visual (Próxima Fase):** Acoplamento do motor lógico do backend com a interface gráfica final. | CustomTkinter, Antigravity | Desktop GUI Integration | **Próximo Passo** |
 
-# 4. Execute o servidor Flask
-python app.py
+---
 
-# 5. Acesse no navegador
-http://127.0.0.1:5000/
-```
+### Funcionalidades Atuais (Módulos Operacionais)
 
+* **Autenticação & SaaS:** Sistema de login criptografado integrado ao Supabase, decodificando metadados de permissão baseados em Cargos (*Estagiário*, *Advogado*) e Planos (*Básico*, *Pro*, *Premium*).
+* **Gerenciamento de Clientes:** CRUD completo conectado ao PostgreSQL em nuvem para cadastro, listagem e auditoria de processos jurídicos.
+* **Mural de Recados Pro:** Central interna para comunicação síncrona de avisos e fixação de tarefas importantes para a equipe.
+* **Central Financeira:** Monitoramento ativo do fluxo de caixa corporativo (entradas/saídas) com cálculo automatizado de saldo consolidado.
+* **Calculadora Previdenciária:** Simulador técnico de regras comuns de transição por Tempo de Contribuição e pontuações pós-reforma.
+* **Hub Inteligente IA PreviMind:** Motor cognitivo conectado à API do Gemini para varredura avançada de jurisprudência (teses e precedentes) e geração parametrizada de minutas processuais.
 
-**Etapas do Desenvolvimento**
+---
 
-O projeto está sendo desenvolvido em fases semanais no estilo ágil (Scrum + Sprints):
-- Autenticação de usuários (login, registro, logout)✅
-- Estrutura inicial de clientes (listagem e cadastro parcial)✅
-- Próximos passos: CRUD completo de clientes e conexão ao banco
-- Futuro: dashboards, análises, notificações e deploy
+### Boas Práticas e Segurança Aplicadas
 
-**Aplicação Real**
+* **Variáveis de Ambiente:** Nenhuma credencial do Supabase ou chave do Gemini é exposta no código. O sistema isola os segredos em um arquivo local protegido.
+* **Versionamento Limpo:** O histórico do repositório é auditado para garantir a conformidade com as diretrizes de segurança da informação (SecOps).
 
-Este sistema será testado e utilizado em um escritório de advocacia previdenciária real, ajudando na:
-- Organização completa de atendimentos e cadastro de clientes;
-- Agilidade no envio de atualizações via WhatsApp/e-mail;
-- Análise de métricas da empresa (clientes ativos, tipos de processos, aniversariantes, taxa de sucesso etc.).
-
-**Prints e Demonstrações**
-
-Sessão em construção! Em breve com imagens de telas, formulários e gráficos.
-
-
-> Nota pessoal: Desenvolver algo do zero exige paciência, pesquisa e constância.
-> Mesmo um sistema simples pode gerar impacto quando nasce de uma necessidade real.
